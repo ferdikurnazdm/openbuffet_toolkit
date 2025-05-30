@@ -86,7 +86,42 @@ hf.upload_file("model_bundle.joblib")
 # Dosya indir
 hf.download_file("model_bundle.joblib", local_dir="./indirilenler")
 ```
+### TextOps ile Metin İşleme
+pythonfrom openbuffet_toolkit.textops import TextOps
 
+#### Türkçe karakterleri ASCII'ye çevirme
+```python
+text = "Çok güzel bir gün! Şöyle böyle..."
+clean_text = TextOps.transliterate_turkish(text)
+print(clean_text)  # "Cok guzel bir gun! Soyle boyle..."
+```
+#### Unicode normalizasyon
+```python
+normalized = TextOps.normalize_unicode("Café naïve résumé")
+```
+#### Noktalama işaretlerini kaldırma
+```python
+no_punct = TextOps.remove_punctuation("Merhaba, dünya!")
+print(no_punct)  # "Merhaba dünya"
+```
+#### Boşlukları düzenleme
+```python
+clean_spaces = TextOps.simplify_spaces("Çok    fazla\n\nboşluk\t\tvar")
+print(clean_spaces)  # "Çok fazla boşluk var"
+```
+#### Tümünü bir arada temizleme
+```python
+messy_text = "  Çağdaş    Türkiye'de...  teknoloji!!!  \n\n"
+clean_result = TextOps.clean(
+    messy_text,
+    use_transliterate=True,    # Türkçe karakterleri çevir
+    use_unicode=True,          # Unicode normalize et
+    use_punctuation=True,      # Noktalama kaldır
+    use_spaces=True,           # Boşlukları düzenle
+    strip_result=True          # Baş/son boşlukları temizle
+)
+print(clean_result)  # "Cagdas Turkiyede teknoloji"
+```
 ## Testler
 
 Projeyi test etmek için:
