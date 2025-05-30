@@ -1,2 +1,107 @@
-# openbuffet_toolkit
-openbuffet ecosystem python toolkit
+# OpenBuffet Toolkit
+
+OpenBuffet ekosistemi için geliştirilmiş modüler bir Python araç kütüphanesidir. Bu toolkit; konfigürasyon yönetimi, loglama, zaman profilleme ve Hugging Face entegrasyonu gibi çok yönlü yardımcı bileşenler içerir. 
+
+Modern uygulamalarda yeniden kullanılabilirliği artırmak, entegrasyonları sadeleştirmek ve yazılım kalitesini yükseltmek amacıyla tasarlanmıştır.
+
+## Uyumluluk
+
+- **Python Versiyonu**: 3.8+
+- **Platform Desteği**: Tüm platformlar
+- **Kullanım Alanları**: FastAPI servisleri, veri işleme pipeline'ları, model tabanlı uygulamalar
+
+## Özellikler
+
+- ✅ Ortam değişkenlerini `.env` dosyasından yükleyebilme (`ConfiguratorEnvironment`)
+- ✅ Dosyaya ve konsola loglama yapan, thread-safe `LoggerManager`
+- ✅ Fonksiyonları çalışma süresine göre profilleyen `Profiler`
+- ✅ Hugging Face üzerinde model ve veri yükleme/indirme işlemleri yapan `HuggingFaceHelper`
+- ✅ Açık kaynak, genişletilebilir yapı
+
+## Kurulum
+
+### Pip ile Kurulum
+
+```bash
+pip install openbuffet-toolkit
+```
+
+### Geliştirme Modunda Kurulum
+
+```bash
+git clone https://github.com/ferdikurnazdm/openbuffet_toolkit.git
+cd openbuffet_toolkit
+pip install -e .
+```
+
+## Kullanım Örnekleri
+
+### LoggerManager Kullanımı
+
+```python
+from openbuffet_toolkit.logger import LoggerManager
+
+logger = LoggerManager().get_logger()
+logger.info("Sistem başlatıldı.")
+```
+
+### Ortam Değişkenlerini Yükleme
+
+```python
+from openbuffet_toolkit.configurator import ConfiguratorEnvironment
+
+config = ConfiguratorEnvironment()
+api_key = config.get("API_KEY")
+```
+
+### Profiler Dekoratörü
+
+```python
+from openbuffet_toolkit.profiler import Profiler
+
+@Profiler.time_taken(label="DEBUG: ")
+def iş_yap():
+    # İşlem kodları
+    pass
+```
+
+### HuggingFaceHelper ile Model Yönetimi
+
+```python
+from openbuffet_toolkit.hfhelper import HuggingFaceHelper
+
+hf = HuggingFaceHelper(
+    hf_username="kullaniciadi",
+    hf_token="hf_abc123",
+    hf_reponame="proje-adi",
+    local_dir="./model"
+)
+
+# Repository oluştur
+hf.create_repo_if_not_exist()
+
+# Dosya yükle
+hf.upload_file("model_bundle.joblib")
+
+# Dosya indir
+hf.download_file("model_bundle.joblib", local_dir="./indirilenler")
+```
+
+## Testler
+
+Projeyi test etmek için:
+
+```bash
+pytest tests/
+```
+
+## Katkı ve İletişim
+
+Bu proje açık kaynaklıdır ve katkılara açıktır. Geri bildirim veya katkı için lütfen GitHub üzerinden issue oluşturun veya pull request gönderin.
+
+- **E-posta**: ferdikurnazdm@gamil.com
+- **GitHub**: https://github.com/ferdikurnazdm/openbuffet_toolkit
+
+## Lisans
+
+Bu proje [MIT Lisansı](LICENSE) ile lisanslanmıştır.
