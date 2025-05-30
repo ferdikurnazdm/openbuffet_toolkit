@@ -12,11 +12,11 @@ Modern uygulamalarda yeniden kullanılabilirliği artırmak, entegrasyonları sa
 
 ## Özellikler
 
-- ✅ Ortam değişkenlerini `.env` dosyasından yükleyebilme (`ConfiguratorEnvironment`)
-- ✅ Dosyaya ve konsola loglama yapan, thread-safe `LoggerManager`
-- ✅ Fonksiyonları çalışma süresine göre profilleyen `Profiler`
-- ✅ Hugging Face üzerinde model ve veri yükleme/indirme işlemleri yapan `HuggingFaceHelper`
-- ✅ Açık kaynak, genişletilebilir yapı
+-  Ortam değişkenlerini `.env` dosyasından yükleyebilme (`ConfiguratorEnvironment`)
+-  Dosyaya ve konsola loglama yapan, thread-safe `LoggerManager`
+-  Fonksiyonları çalışma süresine göre profilleyen `Profiler`
+-  Hugging Face üzerinde model ve veri yükleme/indirme işlemleri yapan `HuggingFaceHelper`
+-  Açık kaynak, genişletilebilir yapı
 
 ## Kurulum
 
