@@ -94,8 +94,9 @@ hf.upload_file("model_bundle.joblib")
 hf.download_file("model_bundle.joblib", local_dir="./indirilenler")
 ```
 ### TextOps ile Metin İşleme
-pythonfrom openbuffet_toolkit.textops import TextOps
-
+```python
+from openbuffet_toolkit.textops import TextOps
+```
 #### Türkçe karakterleri ASCII'ye çevirme
 ```python
 text = "Çok güzel bir gün! Şöyle böyle..."
@@ -129,6 +130,33 @@ clean_result = TextOps.clean(
 )
 print(clean_result)  # "Cagdas Turkiyede teknoloji"
 ```
+
+### MSSQLHelper ile Veritabanı İşlemleri
+```python
+from openbuffet_toolkit.tool_database import MSSQLHelper
+
+db = MSSQLHelper(
+    server="localhost",
+    database="TestDB",
+    user="sa",
+    password="Password123",
+    trusted_connection=False
+)
+
+# Veri çekme
+rows = db.execute_query("SELECT * FROM Users WHERE IsActive = ?", [1])
+
+# Veri ekleme
+db.execute_non_query("INSERT INTO Users (Name, IsActive) VALUES (?, ?)", ["Ali", 1])
+
+# Procedure çalıştırma
+result = db.execute_stored_procedure("sp_GetActiveUsers")
+
+db.close()
+```
+
+
+
 ## Testler
 
 Projeyi test etmek için:
