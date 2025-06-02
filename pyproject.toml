@@ -1,6 +1,6 @@
 [project]
 name = "openbuffet_toolkit"
-version = "0.2.1"
+version = "0.2.2"
 description = "A utility toolkit including logging, configuration, HuggingFace helpers and more."
 authors = [
     { name = "Ferdi Kurnaz", email = "ferdikurnazdm@gmail.com" }

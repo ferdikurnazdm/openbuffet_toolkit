@@ -1,5 +1,12 @@
 # OpenBuffet Toolkit
 
+![GitHub Tag](https://img.shields.io/github/v/tag/ferdikurnazdm/openbuffet_toolkit)
+![PyPI - Version](https://img.shields.io/pypi/v/openbuffet-toolkit)
+![GitHub License](https://img.shields.io/github/license/ferdikurnazdm/openbuffet_toolkit)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ferdikurnazdm/openbuffet_toolkit)
+
+
+
 OpenBuffet ekosistemi için geliştirilmiş modüler bir Python araç kütüphanesidir. Bu toolkit; konfigürasyon yönetimi, loglama, zaman profilleme ve Hugging Face entegrasyonu gibi çok yönlü yardımcı bileşenler içerir. 
 
 Modern uygulamalarda yeniden kullanılabilirliği artırmak, entegrasyonları sadeleştirmek ve yazılım kalitesini yükseltmek amacıyla tasarlanmıştır.
