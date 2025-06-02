@@ -23,7 +23,7 @@ Modern uygulamalarda yeniden kullanılabilirliği artırmak, entegrasyonları sa
 -  Dosyaya ve konsola loglama yapan, thread-safe `LoggerManager`
 -  Fonksiyonları çalışma süresine göre profilleyen `Profiler`
 -  Hugging Face üzerinde model ve veri yükleme/indirme işlemleri yapan `HuggingFaceHelper`
--  Açık kaynak, genişletilebilir yapı
+-  Açık kaynak, genişletilebilir yapı.
 
 ## Kurulum
 
