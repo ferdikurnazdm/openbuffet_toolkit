@@ -1,7 +1,7 @@
 import time
 from functools import wraps
 from typing import Callable, Optional
-from openbuffet_toolkit.tool_logger import LoggerManager
+from openbuffet_toolkit.tool_logger import LoggerHandler
 
 
 class ProfilerHandler:
@@ -10,7 +10,7 @@ class ProfilerHandler:
 
     This class provides a static method `time_taken` which can be used to decorate
     functions or methods to automatically log their execution duration. The output
-    is written to a logger configured via LoggerManager.
+    is written to a logger configured via LoggerHandler.
     """
 
     @staticmethod
@@ -19,7 +19,7 @@ class ProfilerHandler:
         Creates a decorator that logs the execution time of the decorated function.
 
         This method measures how long a function takes to execute and logs the result
-        using the global logger instance obtained from LoggerManager. The output includes
+        using the global logger instance obtained from LoggerHandler. The output includes
         an optional label and the elapsed time with configurable precision.
 
         Args:
@@ -32,7 +32,7 @@ class ProfilerHandler:
         def decorator(func: Callable):
             @wraps(func)
             def wrapper(*args, **kwargs):
-                logger = LoggerManager().get_logger
+                logger = LoggerHandler().get_logger
                 start = time.perf_counter()
                 result = func(*args, **kwargs)
                 end = time.perf_counter()

@@ -1,5 +1,5 @@
 from typing import Optional
-from openbuffet_toolkit.tool_logger import LoggerManager
+from openbuffet_toolkit.tool_logger import LoggerHandler
 from dotenv import load_dotenv
 import os
 
@@ -14,15 +14,15 @@ class EnviroimentHandler:
         __logger (Optional[Logger]): Optional logger for internal logging.
     """
 
-    def __init__(self, dotenv_path: str = None, logger_manager: Optional[LoggerManager] = None):
+    def __init__(self, dotenv_path: str = None, logger_handler: Optional[LoggerHandler] = None):
         """
         Initializes the configuration loader and loads the environment variables from a `.env` file.
 
         Args:
             dotenv_path (str, optional): Full path to the `.env` file. Defaults to a `.env` file in the current directory.
-            logger_manager (LoggerManager, optional): Optional logger instance for logging config load status.
+            logger_handler (LoggerHandler, optional): Optional logger instance for logging config load status.
         """
-        self.__logger = logger_manager.get_logger if logger_manager else None
+        self.__logger = logger_handler.get_logger if logger_handler else None
 
         if dotenv_path is None:
             dotenv_path = os.path.join(os.path.dirname(__file__), ".env")

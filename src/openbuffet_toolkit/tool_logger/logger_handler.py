@@ -7,7 +7,7 @@ import os
 
 class LoggerHandler:
     """
-    A thread-safe singleton-style logger manager for creating and accessing a global logger instance.
+    A thread-safe singleton-style logger handler for creating and accessing a global logger instance.
 
     This class ensures that a single logger instance is created across the entire application,
     with both file and console handlers attached. The log file is stored under a "logs" directory
@@ -15,7 +15,7 @@ class LoggerHandler:
     INFO-level logging to console.
 
     Example:
-        logger = LoggerManager().get_logger()
+        logger = LoggerHandler().get_logger()
         logger.info("This is an info message.")
     """
 
